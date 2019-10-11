@@ -15,15 +15,15 @@
           :config="swingConfig"
           @throwout="() => handleThrowout(index)"
         >
-          <div
-            class="tinder-area--card"
-          >
-            <v-img
-              class="white--text align-end"
-              height="200px"
-              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+          <div class="tinder-area--card">
+            <v-card
+              shaped
+              width="80vw"
+              height="60vh"
+              color="indigo darken-1"
             >
-            </v-img>
+              {{index}}
+            </v-card>
           </div>
         </vue-swing>
       </div>
@@ -40,12 +40,13 @@ export default {
       cards: '0'.repeat(10).split('').map((value, index) => ({ value: index, index })),
       swingConfig: {
         allowedDirections: [VueSwing.Direction.LEFT, VueSwing.Direction.RIGHT],
-        isThrowOut: (xOffset, yOffset, element, throwOutConfidence) => throwOutConfidence > 0.7,
+        isThrowOut: (xOffset, yOffset, element, throwOutConfidence) => throwOutConfidence > 0.5,
       },
     };
   },
   methods: {
     handleThrowout(index) {
+      this.cards.splice(index, 1);
       console.log(index);
     },
   },
@@ -60,8 +61,10 @@ export default {
     position: relative;
     &--card {
       position: absolute;
-      top: 10px;
-      width: 80vw;
+      top: 10vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
     }
   }
 }

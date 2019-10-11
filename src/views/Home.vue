@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       fullpageOptions: {
-
+        touchSensitivity: 120,
       },
     };
   },
