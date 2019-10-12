@@ -18,6 +18,7 @@ export default {
   data() {
     return {
       fullpageOptions: {
+        licenseKey: '00000000-00000000-00000000-00000000',
         touchSensitivity: 120,
       },
     };
