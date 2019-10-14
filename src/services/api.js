@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: 'http://localhost:9600',
+  baseURL: 'http://192.168.1.6:9600',
 });
 
 export const dialogue = {

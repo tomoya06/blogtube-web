@@ -12,12 +12,17 @@
           @throwout="() => handleThrowout(index)"
         >
           <div class="tinder-area--card">
-            <dialogue-card :dialogue="card" :emojiList="supportedBravos"></dialogue-card>
+            <dialogue-card
+              :dialogue="card"
+              :emojiList="supportedBravos"
+            ></dialogue-card>
           </div>
         </vue-swing>
-        <div class="tinder-area--card">
+        <div
+          class="tinder-area--card"
+          v-if="cards.length === 0"
+        >
           <v-card
-            v-if="cards.length === 0"
             shaped
             width="80vw"
             height="60vh"
@@ -103,7 +108,7 @@ export default {
     &--card {
       position: absolute;
       top: 0;
-      bottom: 10vh;
+      bottom: 0vh;
       width: 100vw;
       display: flex;
       justify-content: center;
