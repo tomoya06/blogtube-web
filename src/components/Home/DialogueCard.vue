@@ -36,12 +36,17 @@
     <v-expand-transition>
       <div v-show="isEmojiOpen">
         <div class="vertical-panel">
-          <template v-for="(emoji, index) in emojiList">
-            <v-btn dark icon :key="index" @click="() => tapEmoji(emoji)">
-              <span class="emoji-btn">{{ emoji.content }}</span>
+          <template v-for="(emojiItem, index) in emojiList">
+            <v-btn
+              class="ma-1"
+              elevation="0"
+              fab small :color="emoji === emojiItem.content ? '#E0E0E0' : ''"
+              :key="index" @click="() => tapEmoji(emojiItem)"
+            >
+              <span class="emoji-btn">{{ emojiItem.content }}</span>
             </v-btn>
           </template>
-          <div class="caption">{{emojiComment}}</div>
+          <div class="body-2 font-weight-light pa-2">{{emojiComment}}</div>
         </div>
       </div>
     </v-expand-transition>
@@ -142,5 +147,8 @@ export default {
   widows: 100%;
   overflow: auto;
   white-space: normal;
+}
+.emoji-btn {
+  font-size: 24px;
 }
 </style>

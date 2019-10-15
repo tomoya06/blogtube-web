@@ -108,7 +108,7 @@ export default {
     &--card {
       position: absolute;
       top: 0;
-      bottom: 0vh;
+      bottom: 6vh;
       width: 100vw;
       display: flex;
       justify-content: center;
